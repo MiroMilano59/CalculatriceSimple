@@ -1,29 +1,21 @@
-# from dotenv import load_dotenv, dotenv_values
-# 
 from re import match
+from dotenv import load_dotenv, dotenv_values
+from addition import additionner_nombre as sum_numbers
+from soustraction import soustraire_nombre as substract
+from division import division as divide
+from multiplication import multiplication as multiply
+from getpass import getpass
 
 # GLOBAL VARIABLES MANAGEMENT
 # 1. Retrieval of secured access data
-# load...
-PASSWORD = None
-
-# load_dotenv()
-# #prenom = os.getenv("PRENOM")
-# #print(f'Hello {prenom} from Earth!')
-
-# prenom = {**dotenv_values(".env")}['PRENOM']
-# print(f'Hello {prenom} from Earth!')
-
-# print("j'ai un truc à te dire!")
-
-
+load_dotenv()
+PASSWORD = {**dotenv_values(".env")}['PASSWORD']
 
 # 2. Other global variables to manage in beforehand
-def test(a,b): return a+b
-options = {'+': ('sum', test),
-           '-': ('diff', 'diff'),
-           '*': ('mult', 'mult'),
-           '/': ('div', 'div'),
+options = {'+': ('sum', sum_numbers),
+           '-': ('diff', substract),
+           '*': ('mult', multiply),
+           '/': ('div', divide),
            #'r': ('reset', False),
            'Q': ('Quit', True)}
 
@@ -45,7 +37,20 @@ def check_access(i=3):
         A boolean indicating wether acces shall be granted to the user or not.
     """
 
-    pass
+    # INITIALIZATION & BASIC SETTINGS
+    n, isPasswdOk = 0, False
+
+    # ASKS FOR PASSWORD
+    while n < i and not isPasswdOk:
+        n += 1
+        passwd = getpass("Veuillez saisir le mode de passe: ")
+        isPasswdOk = passwd == PASSWORD
+    
+    # DISPLAYS REJECTED MESSAGE
+    __ = print('Désolé, accès refusé car mot de passe erroné') if not isPasswdOk else None
+
+    # FUNCTION OUTPUT
+    return isPasswdOk
 
 
 # IMPLEMENTATION OF CALCULATOR'S USER INTERFACE FUNCTIONS
@@ -125,7 +130,7 @@ def ask_user_for_choice():
         choice = choice.lower() if choice != 'Q' else choice
 
     # WHEN RELEVANT: ASK AND WAIT FOR THE USER'S VALUES AND RETURN RESULT
-    if choice in choices_list[:-2]:
+    if choice in choices_list[:-1]:
         # Retriev values
         print('\n')
         a, b = [ask_user_for_numeric(i+1) for i in range(2)]
