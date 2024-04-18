@@ -4,6 +4,7 @@ from addition import additionner_nombre as sum_numbers
 from soustraction import soustraire_nombre as substract
 from division import division as divide
 from multiplication import multiplication as multiply
+from getpass import getpass
 
 # GLOBAL VARIABLES MANAGEMENT
 # 1. Retrieval of secured access data
@@ -42,7 +43,7 @@ def check_access(i=3):
     # ASKS FOR PASSWORD
     while n < i and not isPasswdOk:
         n += 1
-        passwd = input("Veuillez saisir le mode de passe: ")
+        passwd = getpass("Veuillez saisir le mode de passe: ")
         isPasswdOk = passwd == PASSWORD
     
     # DISPLAYS REJECTED MESSAGE
