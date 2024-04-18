@@ -10,6 +10,8 @@ from getpass import getpass
 # 1. Retrieval of secured access data
 load_dotenv()
 PASSWORD = {**dotenv_values(".env")}['PASSWORD']
+historique = []
+
 
 # 2. Other global variables to manage in beforehand
 options = {'+': ('sum', sum_numbers),
@@ -36,7 +38,6 @@ def check_access(i=3):
     Retuns:
         A boolean indicating wether acces shall be granted to the user or not.
     """
-
     # INITIALIZATION & BASIC SETTINGS
     n, isPasswdOk = 0, False
 
@@ -58,7 +59,6 @@ def enumerate_options():
     """
         Shows the user the available options (no arguments required)
     """
-
     # INITIALIZATION & BASIC SETTINGS
     x = 1 + maximum_length
 
@@ -77,7 +77,6 @@ def match_numeric(string):
     Returns:
         A boolean (True or False) whether the input is numerical or not.
     """
-
     # PATTERNS
     regx1 = '\d+\.{0,1}\d*'
     regx2 = '\d*\.{0,1}\d+'
@@ -96,7 +95,6 @@ def ask_user_for_numeric(i=''):
     Returns:
         Either an int or a float depending on the user entry
     """
-
     # INITIALIZATION & BASIC SETTINGS
     number = ''
     input_message = 'Veuillez saisir la valeur {}: '.format
@@ -136,10 +134,30 @@ def ask_user_for_choice():
         a, b = [ask_user_for_numeric(i+1) for i in range(2)]
 
         # Displays result
-        print(f'\nRésultat: {options[choice][-1](a, b)}')
+        resultat = options[choice][-1](a, b)
+        historique.append((choice, a, b, resultat))
+        print(f'\nRésultat: {resultat}')
 
         # Set `Quit mode` status
         quit = False
 
     # FUNCTION OUTPUT
     return quit
+
+
+def start_calculator():
+    if check_access():
+        print("Bienvenue dans la calculatrice ...")
+        
+        while True:
+            choix = ask_user_for_choice()
+            
+            if choix.lower() == 'q':
+                print("\nHistorique des Calculs :")
+                
+                for operation in historique:
+                    print(operation)
+                print("Merci d'avoir utilisé notre calculatrice.")
+                break
+    else:
+        print("Accès refusé.")
