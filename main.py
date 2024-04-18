@@ -25,15 +25,17 @@ def calculator():
 
 def afficher_historique():
     print("\nHistorique des Calculs:")
+    print(historique)
+
     for operation in historique:
-        if operation[0] == '+':
-            print(f"{operation[1]} + {operation[2]} = {operation[3]}")
-        elif operation[0] == '-':
-            print(f"{operation[1]} - {operation[2]} = {operation[3]}")
-        elif operation[0] == '*':
-            print(f"{operation[1]} * {operation[2]} = {operation[3]}")
-        elif operation[0] == '/':
-            print(f"{operation[1]} / {operation[2]} = {operation[3]}")
+        if operation[1] == '+':
+            print(f"{operation[0]} + {operation[2]} = {operation[3]}")
+        elif operation[1] == '-':
+            print(f"{operation[0]} - {operation[2]} = {operation[3]}")
+        elif operation[1] == '*':
+            print(f"{operation[0]} * {operation[2]} = {operation[3]}")
+        elif operation[1] == '/':
+            print(f"{operation[0]} / {operation[2]} = {operation[3]}")
 
 
 # RUN CALCULATOR APPLICATION
