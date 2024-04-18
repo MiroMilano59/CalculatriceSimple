@@ -1,5 +1,9 @@
 from re import match
 from dotenv import load_dotenv, dotenv_values
+from addition import additionner_nombre as sum_numbers
+from soustraction import soustraire_nombre as substract
+from division import division as divide
+from multiplication import multiplication as multiply
 
 # GLOBAL VARIABLES MANAGEMENT
 # 1. Retrieval of secured access data
@@ -7,11 +11,10 @@ load_dotenv()
 PASSWORD = {**dotenv_values(".env")}['PASSWORD']
 
 # 2. Other global variables to manage in beforehand
-def test(a,b): return a+b
-options = {'+': ('sum', test),
-           '-': ('diff', 'diff'),
-           '*': ('mult', 'mult'),
-           '/': ('div', 'div'),
+options = {'+': ('sum', sum_numbers),
+           '-': ('diff', substract),
+           '*': ('mult', multiply),
+           '/': ('div', divide),
            #'r': ('reset', False),
            'Q': ('Quit', True)}
 
