@@ -17,9 +17,9 @@ def calculator():
             print()
             quit = ask_user_for_choice()
 
-        # Leaving message
-        print('\nAU REVOIR ET BONNE JOURNEE.')
-        afficher_historique()
+    # Leaving message
+    print('\nAU REVOIR ET BONNE JOURNEE.')
+    afficher_historique()
         
 
 

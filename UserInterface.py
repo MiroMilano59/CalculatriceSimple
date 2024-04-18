@@ -78,8 +78,8 @@ def match_numeric(string):
         A boolean (True or False) whether the input is numerical or not.
     """
     # PATTERNS
-    regx1 = '\d+\.{0,1}\d*'
-    regx2 = '\d*\.{0,1}\d+'
+    regx1 = '-{0,1}\d+\.{0,1}\d*'
+    regx2 = '-{0,1}\d*\.{0,1}\d+'
 
     # OUTPUT
     return bool(match(regx1, string)) or bool(match(regx2, string))
