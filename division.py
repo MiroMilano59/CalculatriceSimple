@@ -1,5 +1,6 @@
 def division(a, b):
-    try:
-        return a / b
-    except ZeroDivisionError:
-        raise ZeroDivisionError("Vous ne pouvez pas diviser par 0.")
+    if b == 0:
+        b=1
+        print("Division par 0 impossible, le dénominateur est remplacé par 1")
+    return a / b
+
