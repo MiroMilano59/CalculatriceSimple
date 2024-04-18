@@ -7,7 +7,6 @@ def calculator():
 
     # CALCULATOR APPLICATION
     if check_access():
-    #if True:
         # Welcome message
         print('HELLO, BIENVENUE DANS CALCULIX, VOTRE APPLICATION DE CALCUL\n')
 
@@ -17,8 +16,8 @@ def calculator():
             print()
             quit = ask_user_for_choice()
 
-        # Leaving message
-        print('\nAU REVOIR ET BONNE JOURNEE.')
+    # Leaving message
+    print('\nAU REVOIR ET BONNE JOURNEE.')
 
 
 # RUN CALCULATOR APPLICATION
