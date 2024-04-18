@@ -6,8 +6,8 @@ def calculator():
     """
 
     # CALCULATOR APPLICATION
-    #if check_access():
-    if True:
+    if check_access():
+    #if True:
         # Welcome message
         print('HELLO, BIENVENUE DANS CALCULIX, VOTRE APPLICATION DE CALCUL\n')
 
