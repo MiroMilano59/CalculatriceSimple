@@ -1,22 +1,10 @@
-# from dotenv import load_dotenv, dotenv_values
-# 
 from re import match
+from dotenv import load_dotenv, dotenv_values
 
 # GLOBAL VARIABLES MANAGEMENT
 # 1. Retrieval of secured access data
-# load...
-PASSWORD = None
-
-# load_dotenv()
-# #prenom = os.getenv("PRENOM")
-# #print(f'Hello {prenom} from Earth!')
-
-# prenom = {**dotenv_values(".env")}['PRENOM']
-# print(f'Hello {prenom} from Earth!')
-
-# print("j'ai un truc à te dire!")
-
-
+load_dotenv()
+PASSWORD = {**dotenv_values(".env")}['PASSWORD']
 
 # 2. Other global variables to manage in beforehand
 def test(a,b): return a+b
@@ -45,7 +33,20 @@ def check_access(i=3):
         A boolean indicating wether acces shall be granted to the user or not.
     """
 
-    pass
+    # INITIALIZATION & BASIC SETTINGS
+    n, isPasswdOk = 0, False
+
+    # ASKS FOR PASSWORD
+    while n < i and not isPasswdOk:
+        n += 1
+        passwd = input("Veuillez saisir le mode de passe: ")
+        isPasswdOk = passwd == PASSWORD
+    
+    # DISPLAYS REJECTED MESSAGE
+    __ = print('Désolé, accès refusé car mot de passe erroné') if not isPasswdOk else None
+
+    # FUNCTION OUTPUT
+    return isPasswdOk
 
 
 # IMPLEMENTATION OF CALCULATOR'S USER INTERFACE FUNCTIONS
