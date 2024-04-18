@@ -130,7 +130,7 @@ def ask_user_for_choice():
         choice = choice.lower() if choice != 'Q' else choice
 
     # WHEN RELEVANT: ASK AND WAIT FOR THE USER'S VALUES AND RETURN RESULT
-    if choice in choices_list[:-2]:
+    if choice in choices_list[:-1]:
         # Retriev values
         print('\n')
         a, b = [ask_user_for_numeric(i+1) for i in range(2)]
