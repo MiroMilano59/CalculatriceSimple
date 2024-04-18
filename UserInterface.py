@@ -135,7 +135,7 @@ def ask_user_for_choice():
 
         # Displays result
         resultat = options[choice][-1](a, b)
-        historique.append((choice, a, b, resultat))
+        historique.append((a, choice, b, resultat))
         print(f'\nRésultat: {resultat}')
 
         # Set `Quit mode` status
