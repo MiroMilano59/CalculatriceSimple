@@ -1,5 +1,5 @@
-from UserInterface import check_access, ask_user_for_choice
-from UserInterface import historique
+from User_interface.UserInterface import check_access, ask_user_for_choice
+from User_interface.UserInterface import historique
 
 def calculator():
     """

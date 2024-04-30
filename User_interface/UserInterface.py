@@ -1,10 +1,11 @@
 from re import match
-from dotenv import load_dotenv, dotenv_values
-from addition import additionner_nombre as sum_numbers
-from soustraction import soustraire_nombre as substract
-from division import division as divide
-from multiplication import multiplication as multiply
 from getpass import getpass
+from dotenv import load_dotenv, dotenv_values
+from Functions.division import division as divide
+from Functions.addition import additionner_nombre as sum_numbers
+from Functions.soustraction import soustraire_nombre as substract
+from Functions.multiplication import multiplication as multiply
+
 
 # GLOBAL VARIABLES MANAGEMENT
 # 1. Retrieval of secured access data
